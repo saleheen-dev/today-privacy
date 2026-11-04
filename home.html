@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Today — daily planner</title>
+<title>Todayly — daily planner</title>
+<link rel="icon" type="image/png" href="./icon.png">
 <style>
   :root{color-scheme:light dark}
   *{box-sizing:border-box}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.6;background:#f4f7f8;color:#14201e}
   main{max-width:680px;margin:0 auto;padding:56px 24px 80px}
   header{display:flex;align-items:center;gap:12px;margin-bottom:28px}
-  .mark{width:44px;height:44px;border-radius:12px;background:linear-gradient(150deg,#2f6e8e,#1b465e);display:grid;place-items:center}
-  .mark svg{width:24px;height:24px;display:block}
+  .mark{width:44px;height:44px;border-radius:12px;object-fit:cover;display:block}
   h1{font-size:32px;line-height:1.15;letter-spacing:-.02em;margin:0 0 6px}
   .tag{color:#5d6e6a;margin:0 0 24px}
   h2{font-size:18px;margin:28px 0 8px}
@@ -25,13 +25,11 @@
 <body>
 <main>
   <header>
-    <span class="mark" aria-hidden="true">
-      <svg viewBox="0 0 48 48"><defs><mask id="c"><rect width="48" height="48" fill="#fff"/><rect x="17" y="24" width="14" height="3.4" rx="1.7" fill="#000"/><rect x="19.5" y="31" width="9" height="3.4" rx="1.7" fill="#000"/></mask></defs><path d="M24 9c6.6 7.6 11 13.3 11 18.6a11 11 0 0 1-22 0C13 22.3 17.4 16.6 24 9z" fill="#f2f8fa" mask="url(#c)"/></svg>
-    </span>
-    <strong>Today</strong>
+    <img class="mark" src="./icon.png" alt="" width="44" height="44">
+    <strong>Todayly</strong>
   </header>
 
-  <h1>Today</h1>
+  <h1>Todayly</h1>
   <p class="tag">Tasks, habits, water and mood in one calm place.</p>
 
   <div class="card">
@@ -41,7 +39,7 @@
 
   <div class="card">
     <h2>Optional cloud sync</h2>
-    <p>Sign in with Google to keep devices in sync. Cloud sync is an optional subscription: <strong>$4.99 per month</strong> after a <strong>7-day free trial</strong>, billed through Google Play. Cancel anytime in the Play Store.</p>
+    <p>Sign in with Google, or create an email and password account, to keep devices in sync. Cloud sync is <strong>free during the initial release</strong> - no subscription or payment is required. If a paid plan is introduced later, pricing will be shown in the app before any purchase.</p>
   </div>
 
   <div class="card">
@@ -51,7 +49,7 @@
 
   <footer>
     <p>Developer: Saleheen Noor · <a href="mailto:developer.saleheen@gmail.com">developer.saleheen@gmail.com</a></p>
-    <p>Today does not provide medical advice. Water, mood and habit entries are for self-tracking only.</p>
+    <p>Todayly does not provide medical advice. Water, mood and habit entries are for self-tracking only.</p>
   </footer>
 </main>
 </body>
