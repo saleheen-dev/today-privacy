@@ -20,18 +20,23 @@
   .mark { width: 40px; height: 40px; border-radius: 10px; object-fit: cover; display: block; }
   h1 { font-size: 30px; line-height: 1.2; margin: 16px 0 4px; }
   h2 { font-size: 19px; margin: 32px 0 8px; }
+  h3 { font-size: 16px; margin: 24px 0 6px; }
   p, li { font-size: 16px; }
   .meta { color: #6e6e73; font-size: 14px; margin: 0 0 24px; }
   ul { padding-left: 22px; }
   li { margin: 6px 0; }
   a { color: #0a84ff; }
   .note { background: #f2f7ff; border-left: 3px solid #0a84ff; padding: 12px 16px; border-radius: 6px; font-size: 15px; }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+  th, td { text-align: left; vertical-align: top; padding: 8px; border-bottom: 1px solid #e5e5ea; }
+  th { font-weight: 600; }
   footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid #e5e5ea; color: #6e6e73; font-size: 14px; }
   @media (prefers-color-scheme: dark) {
     body { background: #0b0b0d; color: #f2f2f7; }
     main { background: #131316; }
     .meta, footer { color: #98989f; }
     .note { background: #0f1c2e; }
+    th, td { border-color: #2c2c30; }
     footer { border-color: #2c2c30; }
   }
 </style>
@@ -44,92 +49,114 @@
   </header>
 
   <h1>Privacy Policy</h1>
-  <p class="meta">Effective date: November 5, 2026</p>
+  <p class="meta">Effective date: 6 November 2026</p>
 
-  <p>Todayly is a personal daily planner for tasks, habits, water intake, mood, focus sessions and saved links. This policy explains what data the app handles and where it goes.</p>
+  <p>Todayly is a personal daily planner for tasks, habits, water intake, mood, focus sessions and saved links. It is built local-first: the data you enter lives in a database on your own device. This policy explains what data the app handles and where it goes.</p>
 
   <h2>The short version</h2>
   <ul>
     <li>Your data is stored on your device by default.</li>
-    <li>Cloud sync and the larger smart-assistant allowance are part of the optional <strong>Todayly Pro</strong> subscription ($4.99/month after a 7-day free trial). If you sign in with Google or create an email and password account, and turn it on, a copy of your synced records is stored in the app's managed backend.</li>
-    <li>There are no analytics, advertising or crash-reporting SDKs.</li>
-    <li>The optional AI assistant sends data only to the provider you configure, using your own API key.</li>
-    <li>The developer does not sell your data.</li>
+    <li><strong>Todayly Pro</strong> is an optional subscription ($4.99/month after a 7-day free trial). It covers cloud sync across devices and a larger smart-assistant allowance. Core features and the on-device assistant stay free.</li>
+    <li>If you sign in with Google or create an email and password account, and turn on cloud sync, a copy of your synced records is stored in our managed backend.</li>
+    <li>Smart answers send your message and a short summary of today to our managed assistant service, which forwards them to a model provider to produce the reply. If you are signed out, offline, or out of allowance, the assistant runs on-device.</li>
+    <li>There are no advertising, analytics or crash-reporting SDKs. We do not sell your data.</li>
   </ul>
 
-  <h2>Data stored on your device</h2>
+  <h2>1. Data stored on your device</h2>
   <p>Todayly keeps the following in a local database on your device:</p>
   <ul>
-    <li>Your display name, email address and profile photo, if you choose to sign in with Google or create an account</li>
+    <li>Your display name, email address and avatar URL, if you choose to sign in</li>
     <li>Tasks, notes and due dates</li>
     <li>Habits and habit check-ins</li>
     <li>Water intake entries and goals</li>
     <li>Mood entries (score, tags, notes)</li>
     <li>Focus session history</li>
     <li>Saved links, their titles, descriptions, thumbnails and your notes</li>
-    <li>Assistant chat history</li>
+    <li>Assistant conversation history</li>
     <li>App settings and reminder schedules</li>
   </ul>
   <p>This data stays on your device unless you explicitly use one of the optional features below.</p>
 
-  <h2>Optional features that send data off your device</h2>
-
-  <h3>AI assistant (opt-in, your own API key)</h3>
-  <p>If you add your own API key for OpenAI, Groq, OpenRouter or another compatible endpoint, the app sends your request directly from your device to that provider. A request can include:</p>
+  <h2>2. Optional account and cloud sync</h2>
+  <p>Cloud sync is off by default. Turning it on requires an explicit sign-in: either continue with Google, or create an email and password account in the app. Passwords for email accounts are stored hashed by Supabase and are never readable by us.</p>
   <ul>
-    <li>Your message or command, and up to 8 recent chat messages</li>
-    <li>A small daily summary: water total, habit and task counts, mood score, focus totals, number of saved items, category names, and up to 8 recent saved-item titles</li>
-    <li>If you use voice input: a short audio recording, sent only to providers that support transcription (OpenAI and Groq)</li>
+    <li><strong>What we receive:</strong> your account's email address, display name and avatar URL (if your Google profile provides one), and the app data needed to keep your devices in sync: water logs, habits and habit logs, tasks, mood check-ins, focus sessions, reminders, saved links, notes and assistant history.</li>
+    <li><strong>Why:</strong> to authenticate you and store the data so it can be restored on another device.</li>
+    <li><strong>Where:</strong> our managed sync service, hosted on <strong>Supabase</strong>, encrypted in transit over HTTPS/TLS.</li>
+    <li><strong>Retention:</strong> the synced copy is kept until you delete your account or request deletion.</li>
+    <li><strong>Cost:</strong> cloud sync and the higher smart-answer allowance are part of the optional <strong>Todayly Pro</strong> subscription, $4.99/month after a 7-day free trial. Payment is processed by Google Play; we receive subscription status and expiry, never your card details. You can cancel in Google Play -> Subscriptions.</li>
+    <li><strong>Lawful basis:</strong> your consent, given by choosing to sign in; you can withdraw it by turning cloud sync off and deleting the account.</li>
   </ul>
-  <p>Your API key is stored in the device's secure storage. The developer does not receive your prompts, recordings or summaries. The provider you choose handles that data under its own privacy policy.</p>
-  <p>Spoken replies use your device's text-to-speech engine. On some devices that engine may be provided by the platform, and the platform's policies apply. AI responses are generated by third-party models and may be inaccurate.</p>
+  <p>If you never sign in, none of this data is transmitted.</p>
 
-  <h3>Cloud sync (opt-in, managed backend)</h3>
-  <p>If you sign in and turn on cloud sync, Todayly stores a copy of your synced records in a managed backend hosted with Supabase so your devices can stay in sync. You can continue with Google, or create an email and password account. Synced records include tasks, habits and check-ins, water entries, mood entries, focus sessions, saved links, categories and assistant chat history. Google sign-in provides your email address, name and profile photo; an email account provides your email address. The app uses these to identify your account and show your profile. Passwords for email accounts are stored hashed by Supabase and are never readable by the developer. Data is sent over HTTPS.</p>
-  <p>The developer operates this backend and can access the stored records to provide and support cloud sync. The developer does not sell this data. You can turn cloud sync off at any time in Profile; your local data stays on your device.</p>
-
-  <h3>Todayly Pro cost</h3>
-  <p>Todayly Pro is an optional subscription costing $4.99 per month after a 7-day free trial, billed through Google Play. It includes cloud sync and the larger smart-assistant allowance. Google processes the payment; the app receives subscription status and expiry, not your payment card details. You can manage or cancel the subscription in Google Play.</p>
-
-  <h3>Link previews</h3>
-  <p>When you save a link, Todayly fetches its title, description and thumbnail from the website or its oEmbed provider. The URL you save is sent to that provider.</p>
-
-  <h3>Opening links</h3>
-  <p>Opening a saved link hands it to your device's browser or the app that handles that link.</p>
-
-  <h2>Permissions</h2>
+  <h2>3. Smart answers (assistant)</h2>
   <ul>
-    <li><strong>Microphone</strong> — only while you record a voice command or voice search.</li>
-    <li><strong>Notifications</strong> — for the reminders and focus-session alerts you schedule. These notifications are local to your device; Todayly does not use push notifications.</li>
-    <li><strong>Vibration</strong> — for haptic feedback.</li>
+    <li>Smart answers are included with the account you use for cloud sync, with a free daily allowance. An active Todayly Pro subscription raises the allowance (currently 100 answers a day; the free allowance is 3 a day). The current allowance is shown in Profile -> Todayly Pro.</li>
+    <li>When a smart answer is produced, your message and a short summary of today (water, habits, tasks, mood, focus) are sent over HTTPS to our managed assistant service (a Supabase Edge Function). That service forwards the request to a model provider - <strong>Groq</strong> as the primary provider, with <strong>Cloudflare Workers AI</strong> as a fallback - to produce the answer.</li>
+    <li><strong>Voice input:</strong> the recorded clip is sent the same way and transcribed by the provider. Spoken replies use the device's text-to-speech engine and never leave the phone.</li>
+    <li><strong>What we store:</strong> nothing from the conversation itself. We keep only a per-day counter (account id, feature, day, count) so the daily allowance can be enforced.</li>
+    <li><strong>On-device fallback:</strong> if you are signed out, offline, or the daily allowance is used up, the assistant routes the request on-device; no audio or message leaves the device.</li>
+    <li>AI responses are generated by third-party models and may be inaccurate. They are not medical, legal or financial advice.</li>
   </ul>
 
-  <h2>Sharing and analytics</h2>
-  <p>Todayly has no advertising, analytics or crash-reporting SDK. The developer does not sell your data. Data is shared only with the services needed for the optional features you use: Supabase (cloud hosting), Google (sign-in), Google Play (Todayly Pro payments), and the AI or transcription provider used for smart answers.</p>
+  <h2>4. Permissions</h2>
+  <ul>
+    <li><strong>Microphone</strong> - only while you record a voice command or voice search.</li>
+    <li><strong>Notifications</strong> - for the reminders and focus-session alerts you schedule. These notifications are local to your device; Todayly does not use push notifications.</li>
+    <li><strong>Vibration</strong> - for haptic feedback.</li>
+    <li><strong>Internet</strong> - for optional sync and for smart answers when you are signed in with allowance left.</li>
+  </ul>
+  <p>The app requests no access to your location, contacts, calendar, photos, files or SMS.</p>
+
+  <h2>5. Sharing and third parties</h2>
+  <p>Todayly has no advertising, analytics or crash-reporting SDK. We do not sell your data. Data is transferred only to the services needed for the optional features you use:</p>
+  <table>
+    <thead>
+      <tr><th>Service</th><th>Purpose</th><th>Data</th><th>Their policy</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Google Sign-In</td><td>Optional authentication</td><td>Email, name, avatar</td><td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td></tr>
+      <tr><td>Supabase</td><td>Cloud hosting; assistant request forwarding and daily allowance</td><td>Account identifier, synced app data, prompt text and today summary; no stored messages</td><td><a href="https://supabase.com/privacy">supabase.com/privacy</a></td></tr>
+      <tr><td>Groq / Cloudflare Workers AI</td><td>Producing smart answers and voice transcription</td><td>The prompt text or audio clip sent for that request</td><td><a href="https://groq.com/privacy-policy">groq.com/privacy-policy</a> · <a href="https://www.cloudflare.com/privacypolicy/">cloudflare.com/privacypolicy</a></td></tr>
+      <tr><td>Google Play</td><td>Todayly Pro payments</td><td>Subscription status and expiry; no card details reach us</td><td><a href="https://policies.google.com/privacy">policies.google.com/privacy</a></td></tr>
+    </tbody>
+  </table>
+
+  <h2>6. Security</h2>
+  <p>Everything transmitted uses HTTPS/TLS. Synced data is scoped to your account on the server. Device data is protected by the operating system's app sandbox. No method is perfectly secure, but we keep access to the minimum needed for sync and smart answers to work.</p>
+
+  <h2>7. Children</h2>
+  <p>Todayly is intended for people aged 13 and over. It is not directed at children, and we do not knowingly collect data from children under 13. If you believe a child has provided data, contact us and we will delete it.</p>
+
+  <h2>8. Health information</h2>
+  <p>Water, mood, habit and focus entries are self-tracking tools. They are not medical advice, diagnosis or treatment. Todayly is not a medical device.</p>
+
+  <h2>9. Your choices and rights</h2>
+  <ul>
+    <li><strong>Export:</strong> the app can export your data through the system share sheet.</li>
+    <li><strong>Erase local data:</strong> Profile -> Erase all data removes everything from the device.</li>
+    <li><strong>Delete account and synced data:</strong> see the next section.</li>
+    <li><strong>Access / correction:</strong> you can edit or export your data at any time; for server-side copies, contact us.</li>
+  </ul>
+  <p>Depending on where you live (for example under GDPR or CCPA), you may also have the right to object to processing, request a portable copy, or lodge a complaint with your data protection authority.</p>
 
   <h2 id="deletion">Deleting your data</h2>
   <ul>
-    <li><strong>In the app:</strong> Profile → Erase all data removes your local database contents.</li>
-    <li><strong>Cloud sync / Todayly Pro:</strong> <strong>Profile → Todayly Pro → Delete account</strong> deletes your account and every synced copy. You can also turn cloud sync off to stop syncing. If you cannot open the app, email <a href="mailto:developer.saleheen@gmail.com">developer.saleheen@gmail.com</a> from the account's email address and we delete the account and synced rows within 30 days.</li>
-    <li><strong>Credentials:</strong> remove your API key in Assistant settings and sign out of cloud sync to delete the stored key and session token.</li>
+    <li><strong>In the app:</strong> Profile -> Erase all data removes your local database contents.</li>
+    <li><strong>Account and synced copies:</strong> <strong>Profile -> Todayly Pro -> Delete account</strong> deletes your account and every synced row, including the assistant allowance counter. You can also turn cloud sync off to stop syncing. If you cannot open the app, email the contact address below from the account's email address and we delete the account and synced rows within 30 days.</li>
     <li><strong>Everything:</strong> uninstalling Todayly removes all local app data, including secure storage.</li>
-    <li><strong>AI provider data:</strong> data sent to an AI provider is deleted through that provider, under its policies.</li>
+    <li><strong>AI provider data:</strong> requests sent for a smart answer are handled under the provider's policy; we do not store the conversation.</li>
   </ul>
 
-  <h2>Children</h2>
-  <p>Todayly is not directed to children under 13, and the developer does not knowingly collect data from children.</p>
-
-  <h2>Health information</h2>
-  <p>Water, mood, habit and focus entries are self-tracking tools. They are not medical advice, diagnosis or treatment.</p>
-
-  <h2>Changes to this policy</h2>
+  <h2>10. Changes to this policy</h2>
   <p>If this policy changes, the updated version will be posted on this page with a new effective date.</p>
 
-  <h2>Contact</h2>
+  <h2>11. Contact</h2>
   <p>Questions about this policy: <a href="mailto:developer.saleheen@gmail.com">developer.saleheen@gmail.com</a></p>
 
   <footer>
     <p>Todayly — Tasks, Habits &amp; Water. This page is the official privacy policy for the Todayly Android app.</p>
+    <p><a href="./terms.html">Terms of Service</a> · <a href="./home.html">App home</a></p>
   </footer>
 </main>
 </body>
