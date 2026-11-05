@@ -51,7 +51,7 @@
   <h2>The short version</h2>
   <ul>
     <li>Your data is stored on your device by default.</li>
-    <li>Cloud sync is optional and free during the initial release. If you sign in with Google or create an email and password account, and turn it on, a copy of your synced records is stored in the app's managed backend.</li>
+    <li>Cloud sync and the larger smart-assistant allowance are part of the optional <strong>Todayly Pro</strong> subscription ($4.99/month after a 7-day free trial). If you sign in with Google or create an email and password account, and turn it on, a copy of your synced records is stored in the app's managed backend.</li>
     <li>There are no analytics, advertising or crash-reporting SDKs.</li>
     <li>The optional AI assistant sends data only to the provider you configure, using your own API key.</li>
     <li>The developer does not sell your data.</li>
@@ -88,8 +88,8 @@
   <p>If you sign in and turn on cloud sync, Todayly stores a copy of your synced records in a managed backend hosted with Supabase so your devices can stay in sync. You can continue with Google, or create an email and password account. Synced records include tasks, habits and check-ins, water entries, mood entries, focus sessions, saved links, categories and assistant chat history. Google sign-in provides your email address, name and profile photo; an email account provides your email address. The app uses these to identify your account and show your profile. Passwords for email accounts are stored hashed by Supabase and are never readable by the developer. Data is sent over HTTPS.</p>
   <p>The developer operates this backend and can access the stored records to provide and support cloud sync. The developer does not sell this data. You can turn cloud sync off at any time in Profile; your local data stays on your device.</p>
 
-  <h3>Cloud sync cost</h3>
-  <p>Cloud sync is free during the initial release: no payment is taken and no subscription is created. If a paid plan is introduced later, the price, billing period, renewal and cancellation terms will be shown in the app before any purchase, and payment will be processed by Google Play. Google processes the payment; the app would receive subscription status and expiry, not payment card details.</p>
+  <h3>Todayly Pro cost</h3>
+  <p>Todayly Pro is an optional subscription costing $4.99 per month after a 7-day free trial, billed through Google Play. It includes cloud sync and the larger smart-assistant allowance. Google processes the payment; the app receives subscription status and expiry, not your payment card details. You can manage or cancel the subscription in Google Play.</p>
 
   <h3>Link previews</h3>
   <p>When you save a link, Todayly fetches its title, description and thumbnail from the website or its oEmbed provider. The URL you save is sent to that provider.</p>
@@ -105,12 +105,12 @@
   </ul>
 
   <h2>Sharing and analytics</h2>
-  <p>Todayly has no advertising, analytics or crash-reporting SDK. The developer does not sell your data. Data is shared only with the services needed for the optional features you use: Supabase (cloud sync hosting), Google (sign-in), Google Play (only if a paid plan is introduced later), and the AI or transcription provider you configure.</p>
+  <p>Todayly has no advertising, analytics or crash-reporting SDK. The developer does not sell your data. Data is shared only with the services needed for the optional features you use: Supabase (cloud hosting), Google (sign-in), Google Play (Todayly Pro payments), and the AI or transcription provider used for smart answers.</p>
 
   <h2 id="deletion">Deleting your data</h2>
   <ul>
     <li><strong>In the app:</strong> Profile → Erase all data removes your local database contents.</li>
-    <li><strong>Cloud sync:</strong> <strong>Profile → Cloud sync → Delete account</strong> deletes your account and every synced copy. You can also turn cloud sync off to stop syncing. If you cannot open the app, email <a href="mailto:developer.saleheen@gmail.com">developer.saleheen@gmail.com</a> from the account's email address and we delete the account and synced rows within 30 days.</li>
+    <li><strong>Cloud sync / Todayly Pro:</strong> <strong>Profile → Todayly Pro → Delete account</strong> deletes your account and every synced copy. You can also turn cloud sync off to stop syncing. If you cannot open the app, email <a href="mailto:developer.saleheen@gmail.com">developer.saleheen@gmail.com</a> from the account's email address and we delete the account and synced rows within 30 days.</li>
     <li><strong>Credentials:</strong> remove your API key in Assistant settings and sign out of cloud sync to delete the stored key and session token.</li>
     <li><strong>Everything:</strong> uninstalling Todayly removes all local app data, including secure storage.</li>
     <li><strong>AI provider data:</strong> data sent to an AI provider is deleted through that provider, under its policies.</li>
